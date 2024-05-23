@@ -20,7 +20,7 @@ if (isset($uri[2])) {
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
-$host = "localhost://";
+$host = "localhost";
 $db_name = "test";
 $username = "root";
 $password = "";

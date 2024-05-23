@@ -28,6 +28,10 @@ class UserController
             default => $this->notFoundResponse()
         };
 
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Methods: GET, POST, DELETE");
+        header("Access-Control-Allow-Headers: Content-Type");
+        header("Content-type:application/json; charset=UTF8;");
         header($res['status_code_header']);
         if (isset($res["body"])) {
             echo $res["body"];

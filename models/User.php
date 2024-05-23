@@ -33,7 +33,7 @@ class User
 
     public function create(string $name, string $email, string $password): bool
     {
-        $query = "INSERT INTO {$this->table_name} VALUES (:name, :email, :password)";
+        $query = "INSERT INTO {$this->table_name} (name, email, user_password) VALUES (:name, :email, :password)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":name", $name);
         $stmt->bindParam(":email", $email);
@@ -43,7 +43,7 @@ class User
 
     public function update(int $id, string $name, string $email, string $password): bool
     {
-        $query = "UPDATE {$this->table_name} SET name = :name, email = :email, password = :password WHERE id = :id;";
+        $query = "UPDATE {$this->table_name} SET name = :name, email = :email, user_password = :password WHERE id = :id;";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":name", $name);
         $stmt->bindParam(":email", $email);
